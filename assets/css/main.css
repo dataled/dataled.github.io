@@ -23,7 +23,8 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;
+}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -92,6 +93,8 @@ input, select, textarea {
 
 	html {
 		box-sizing: border-box;
+		scroll-behavior: smooth;
+ 		scroll-padding-top: 4.1rem;
 	}
 
 	*, *:before, *:after {
@@ -230,11 +233,11 @@ input, select, textarea {
 			}
 
 			a.special:not(.button):hover:before {
-				background-color: rgba(255, 255, 255, 0.025);
+				background-color: rgba(255, 255, 255, 0.065);
 			}
 
 			a.special:not(.button):active:before {
-				background-color: rgba(255, 255, 255, 0.075);
+				background-color: rgba(255, 255, 255, 0.09);
 			}
 
 	strong, b {
@@ -2378,7 +2381,6 @@ input, select, textarea {
 		text-decoration: none;
 		border-bottom: none;
 		position: relative;
-		margin-right: 15px;
 	}
 
 		.icon:before {
@@ -3078,14 +3080,23 @@ input, select, textarea {
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
 		background-color: rgba(53, 56, 73, 0.95);
-		height: 3.5em;
+		height: 3.2em;
 		left: 0;
-		line-height: 3.5em;
+		cursor: default;
+		line-height: 3.2em;
 		padding: 0 1.25em;
 		position: fixed;
 		top: 0;
 		width: 100%;
 		z-index: 10000;
+	}
+
+	#header:hover {
+		box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.065);
+	}
+
+	#header:active {
+		box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.09);
 	}
 
 		#header h1 {
@@ -3094,79 +3105,29 @@ input, select, textarea {
 			-ms-transition: opacity 0.2s ease-in-out, visibility 0.2s;
 			transition: opacity 0.2s ease-in-out, visibility 0.2s;
 			border-bottom: 0;
-			font-size: 0.8em;
+			font-size: 0.9em;
 			margin-bottom: 0;
+			cursor: pointer;
 			opacity: 1;
 			visibility: visible;
+			float: right;
 		}
 
 			#header h1 a {
 				border: 0;
 			}
 
-		#header nav {
-			font-family: Raleway, Helvetica, sans-serif;
-			font-size: 0.8em;
-			font-weight: 700;
-			height: 3em;
-			letter-spacing: 0.1em;
-			line-height: 3em;
-			position: absolute;
-			right: 0.7em;
-			text-transform: uppercase;
-			top: 0.7em;
-		}
-
-			#header nav a {
-				border: 0;
-				display: inline-block;
-				padding: 0 1em;
-			}
-
-				#header nav a:before {
-					float: right;
-					margin-left: 0.75em;
-				}
-
-				#header nav a[href="#menu"] {
-					text-decoration: none;
-					-moz-transition: background-color 0.2s ease-in-out;
-					-webkit-transition: background-color 0.2s ease-in-out;
-					-ms-transition: background-color 0.2s ease-in-out;
-					transition: background-color 0.2s ease-in-out;
-					border-radius: 5px;
-					box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.125);
-					padding: 0 1.35em;
-				}
-
-					#header nav a[href="#menu"]:before {
-						-moz-osx-font-smoothing: grayscale;
-						-webkit-font-smoothing: antialiased;
-						display: inline-block;
-						font-style: normal;
-						font-variant: normal;
-						text-rendering: auto;
-						line-height: 1;
-						text-transform: none !important;
-						font-family: 'Font Awesome 5 Free';
-						font-weight: 900;
-					}
-
-					#header nav a[href="#menu"]:before {
-						content: '\f0c9';
-						line-height: inherit;
-					}
-
-					#header nav a[href="#menu"]:hover {
-						background-color: rgba(255, 255, 255, 0.025);
-					}
-
-					#header nav a[href="#menu"]:active {
-						background-color: rgba(255, 255, 255, 0.075);
-					}
 
 		#header.alt {
 			background-color: transparent;
+		}
+
+		#header.alt:hover {
+			box-shadow: inset 0 0 0 2000px transparent;
+		}
+	
+		#header.alt:active {
+			box-shadow: inset 0 0 0 2000px transparent;
 		}
 
 			#header.alt h1 {
@@ -3260,7 +3221,7 @@ input, select, textarea {
 		user-select: none;
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 		background: rgba(46, 49, 65, 0.8);
-		cursor: default;
+		cursor: pointer;
 		height: 100%;
 		left: 0;
 		opacity: 0;
@@ -3271,115 +3232,17 @@ input, select, textarea {
 		width: 100%;
 	}
 
-		#menu .inner {
-			padding: 2.5em 1.5em 0.5em 1.5em ;
-			-moz-transform: translateY(0.5em);
-			-webkit-transform: translateY(0.5em);
-			-ms-transform: translateY(0.5em);
-			transform: translateY(0.5em);
-			-moz-transition: opacity 0.35s ease, -moz-transform 0.35s ease;
-			-webkit-transition: opacity 0.35s ease, -webkit-transform 0.35s ease;
-			-ms-transition: opacity 0.35s ease, -ms-transform 0.35s ease;
-			transition: opacity 0.35s ease, transform 0.35s ease;
-			-webkit-overflow-scrolling: touch;
-			background: #4c5c96;
-			border-radius: 5px;
-			display: block;
-			max-width: 100%;
-			opacity: 0;
-			position: relative;
-			width: 18em;
-		}
 
-		#menu h2 {
-			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
-			padding-bottom: 1em;
-		}
-
-		#menu .close {
-			background-image: url("images/close.svg");
-			background-position: 75% 25%;
-			background-repeat: no-repeat;
-			background-size: 2em 2em;
-			border: 0;
-			content: '';
-			display: block;
-			height: 4em;
-			overflow: hidden;
-			position: absolute;
-			right: 0;
-			text-align: center;
-			text-indent: 4em;
-			top: 0;
-			width: 4em;
-		}
-
-		#menu .links {
-			list-style: none;
-			margin-bottom: 1.5em;
-			padding: 0;
-		}
-
-			#menu .links li {
-				padding: 0;
-			}
-
-				#menu .links li a {
-					border-radius: 5px;
-					border: 0;
-					display: block;
-					font-family: Raleway, Helvetica, sans-serif;
-					font-size: 0.8em;
-					font-weight: 200;
-					letter-spacing: 0.1em;
-					line-height: 1.85em;
-					padding: 0.75em 0;
-					text-transform: uppercase;
-				}
-
-					#menu .links li a:hover {
-						background: #45558d;
-					}
-
-		@media screen and (max-width: 736px) {
-
-			#menu .inner {
-				max-height: 100%;
-				overflow-y: auto;
-				overflow-x: hidden;
-			}
-
-				#menu .inner .close {
-					background-size: 1.5em 1.5em;
-				}
-
-		}
-
-	body.is-menu-visible #page-wrapper {
-		-moz-filter: blur(1.5px);
-		-webkit-filter: blur(1.5px);
-		-ms-filter: blur(1.5px);
-		filter: blur(1.5px);
-	}
-
-	body.is-menu-visible #menu {
-		pointer-events: auto;
-		opacity: 1;
-		visibility: visible;
-	}
-
-		body.is-menu-visible #menu .inner {
-			-moz-transform: translateY(0);
-			-webkit-transform: translateY(0);
-			-ms-transform: translateY(0);
-			transform: translateY(0);
-			opacity: 1;
-		}
 
 /* Banner */
 
 	#banner {
 		padding: 10em 0 4.75em 0 ;
+	}
+	#banner  a { 
+		border-bottom: none; 
+		display:inline-block;
+		margin-right:1em;
 	}
 
 		#banner .inner {
@@ -3388,22 +3251,26 @@ input, select, textarea {
 		}
 
 		#banner .logo {
-			-moz-transition: opacity 2s ease, -moz-transform 1s ease;
-			-webkit-transition: opacity 2s ease, -webkit-transform 1s ease;
-			-ms-transition: opacity 2s ease, -ms-transform 1s ease;
-			transition: opacity 2s ease, transform 1s ease;
+			-moz-transition: opacity 1s ease, -moz-transform 0.5s ease;
+			-webkit-transition: opacity 1s ease, -webkit-transform 0.5s ease;
+			-ms-transition: opacity 1s ease, -ms-transform 0.5s ease;
+			transition: opacity 1s ease, transform 0.5s ease;
 			-moz-transform: translateY(0);
 			-webkit-transform: translateY(0);
 			-ms-transform: translateY(0);
 			transform: translateY(0);
 			opacity: 1;
 			margin: 0 0 1.3em 0;
+			-moz-transition-delay: 0.6s;
+			-webkit-transition-delay: 0.6s;
+			-ms-transition-delay: 0.6s;
+			transition-delay: 0.6s;
 		}
 
 			#banner .logo .icon {
 				border-radius: 100%;
 				border: solid 2px rgba(255, 255, 255, 0.125);
-				cursor: default;
+				cursor: pointer;
 				display: inline-block;
 				font-size: 2em;
 				height: 2.25em;
@@ -3411,6 +3278,214 @@ input, select, textarea {
 				text-align: center;
 				width: 2.25em;
 			}
+
+			#banner .logo .icon:hover {
+				background-color: rgba(255, 255, 255, 0.065);
+			}
+
+			#banner .logo .icon:active {
+				background-color: rgba(255, 255, 255, 0.09);
+			}
+
+
+		
+			#banner .logo2 {
+				-moz-transition: opacity 1s ease, -moz-transform 0.5s ease;
+				-webkit-transition: opacity 1s ease, -webkit-transform 0.5s ease;
+				-ms-transition: opacity 1s ease, -ms-transform 0.5s ease;
+				transition: opacity 1s ease, transform 0.5s ease;
+				-moz-transform: translateY(0);
+				-webkit-transform: translateY(0);
+				-ms-transform: translateY(0);
+				transform: translateY(0);
+				opacity: 1;
+				margin: 0 0 1.3em 0;
+				-moz-transition-delay: 0.7s;
+				-webkit-transition-delay: 0.7s;
+				-ms-transition-delay: 0.7s;
+				transition-delay: 0.7s;
+			}
+	
+				#banner .logo2 .icon {
+					border-radius: 100%;
+					border: solid 2px rgba(255, 255, 255, 0.125);
+					cursor: pointer;
+					display: inline-block;
+					font-size: 2em;
+					height: 2.25em;
+					line-height: 2.25em;
+					text-align: center;
+					width: 2.25em;
+				}
+	
+				#banner .logo2 .icon:hover {
+					background-color: rgba(255, 255, 255, 0.065);
+				}
+	
+				#banner .logo2 .icon:active {
+					background-color: rgba(255, 255, 255, 0.09);
+				}
+
+
+
+
+				#banner .logo3 {
+					-moz-transition: opacity 1s ease, -moz-transform 0.5s ease;
+					-webkit-transition: opacity 1s ease, -webkit-transform 0.5s ease;
+					-ms-transition: opacity 1s ease, -ms-transform 0.5s ease;
+					transition: opacity 1s ease, transform 0.5s ease;
+					-moz-transform: translateY(0);
+					-webkit-transform: translateY(0);
+					-ms-transform: translateY(0);
+					transform: translateY(0);
+					opacity: 1;
+					margin: 0 0 1.3em 0;
+					-moz-transition-delay: 0.8s;
+					-webkit-transition-delay: 0.8s;
+					-ms-transition-delay: 0.8s;
+					transition-delay: 0.8s;
+				}
+		
+					#banner .logo3 .icon {
+						border-radius: 100%;
+						border: solid 2px rgba(255, 255, 255, 0.125);
+						cursor: pointer;
+						display: inline-block;
+						font-size: 2em;
+						height: 2.25em;
+						line-height: 2.25em;
+						text-align: center;
+						width: 2.25em;
+					}
+		
+					#banner .logo3 .icon:hover {
+						background-color: rgba(255, 255, 255, 0.065);
+					}
+		
+					#banner .logo3 .icon:active {
+						background-color: rgba(255, 255, 255, 0.09);
+					}
+
+
+
+
+					#banner .logo4 {
+						-moz-transition: opacity 1s ease, -moz-transform 0.5s ease;
+						-webkit-transition: opacity 1s ease, -webkit-transform 0.5s ease;
+						-ms-transition: opacity 1s ease, -ms-transform 0.5s ease;
+						transition: opacity 1s ease, transform 0.5s ease;
+						-moz-transform: translateY(0);
+						-webkit-transform: translateY(0);
+						-ms-transform: translateY(0);
+						transform: translateY(0);
+						opacity: 1;
+						margin: 0 0 1.3em 0;
+						-moz-transition-delay: 0.85s;
+						-webkit-transition-delay: 0.85s;
+						-ms-transition-delay: 0.85s;
+						transition-delay: 0.85s;
+					}
+			
+						#banner .logo4 .icon {
+							border-radius: 100%;
+							border: solid 2px rgba(255, 255, 255, 0.125);
+							cursor: pointer;
+							display: inline-block;
+							font-size: 2em;
+							height: 2.25em;
+							line-height: 2.25em;
+							text-align: center;
+							width: 2.25em;
+						}
+			
+						#banner .logo4 .icon:hover {
+							background-color: rgba(255, 255, 255, 0.065);
+						}
+			
+						#banner .logo4 .icon:active {
+							background-color: rgba(255, 255, 255, 0.09);
+						}
+	
+
+
+						#banner .logo5 {
+							-moz-transition: opacity 1s ease, -moz-transform 0.5s ease;
+							-webkit-transition: opacity 1s ease, -webkit-transform 0.5s ease;
+							-ms-transition: opacity 1s ease, -ms-transform 0.5s ease;
+							transition: opacity 1s ease, transform 0.5s ease;
+							-moz-transform: translateY(0);
+							-webkit-transform: translateY(0);
+							-ms-transform: translateY(0);
+							transform: translateY(0);
+							opacity: 1;
+							margin: 0 0 1.3em 0;
+							-moz-transition-delay: 0.9s;
+							-webkit-transition-delay: 0.9s;
+							-ms-transition-delay: 0.9s;
+							transition-delay: 0.9s;
+						}
+				
+							#banner .logo5 .icon {
+								border-radius: 100%;
+								border: solid 2px rgba(255, 255, 255, 0.125);
+								cursor: pointer;
+								display: inline-block;
+								font-size: 2em;
+								height: 2.25em;
+								line-height: 2.25em;
+								text-align: center;
+								width: 2.25em;
+							}
+				
+							#banner .logo5 .icon:hover {
+								background-color: rgba(255, 255, 255, 0.065);
+							}
+				
+							#banner .logo5 .icon:active {
+								background-color: rgba(255, 255, 255, 0.09);
+							}
+
+
+
+
+							#banner .logo6 {
+								-moz-transition: opacity 1s ease, -moz-transform 0.5s ease;
+								-webkit-transition: opacity 1s ease, -webkit-transform 0.5s ease;
+								-ms-transition: opacity 1s ease, -ms-transform 0.5s ease;
+								transition: opacity 1s ease, transform 0.5s ease;
+								-moz-transform: translateY(0);
+								-webkit-transform: translateY(0);
+								-ms-transform: translateY(0);
+								transform: translateY(0);
+								opacity: 1;
+								margin: 0 0 1.3em 0;
+								-moz-transition-delay: 0.95s;
+								-webkit-transition-delay: 0.95s;
+								-ms-transition-delay: 0.95s;
+								transition-delay: 0.95s;
+							}
+					
+								#banner .logo6 .icon {
+									border-radius: 100%;
+									border: solid 2px rgba(255, 255, 255, 0.125);
+									cursor: pointer;
+									display: inline-block;
+									font-size: 2em;
+									height: 2.25em;
+									line-height: 2.25em;
+									text-align: center;
+									width: 2.25em;
+								}
+					
+								#banner .logo6 .icon:hover {
+									background-color: rgba(255, 255, 255, 0.065);
+								}
+					
+								#banner .logo6 .icon:active {
+									background-color: rgba(255, 255, 255, 0.09);
+								}
+
+
 
 		#banner h2 {
 			-moz-transition: opacity 0.5s ease, -moz-transform 0.5s ease, -moz-filter 0.25s ease;
@@ -3505,6 +3580,46 @@ input, select, textarea {
 						font-size: 1.5em;
 					}
 
+					#banner .logo2 {
+						margin: 0 0 1em 0;
+					}
+	
+						#banner .logo2 .icon {
+							font-size: 1.5em;
+						}
+
+						#banner .logo3 {
+							margin: 0 0 1em 0;
+						}
+		
+							#banner .logo3 .icon {
+								font-size: 1.5em;
+							}
+
+							#banner .logo4 {
+								margin: 0 0 1em 0;
+							}
+			
+								#banner .logo4 .icon {
+									font-size: 1.5em;
+								}
+
+								#banner .logo5 {
+									margin: 0 0 1em 0;
+								}
+				
+									#banner .logo5 .icon {
+										font-size: 1.5em;
+									}
+
+									#banner .logo6 {
+										margin: 0 0 1em 0;
+									}
+					
+										#banner .logo6 .icon {
+											font-size: 1.5em;
+										}
+
 				#banner h2 {
 					font-size: 1.5em;
 				}
@@ -3516,6 +3631,46 @@ input, select, textarea {
 		}
 
 		body.is-preload #banner .logo {
+			-moz-transform: translateY(0.5em);
+			-webkit-transform: translateY(0.5em);
+			-ms-transform: translateY(0.5em);
+			transform: translateY(0.5em);
+			opacity: 0;
+		}
+
+		body.is-preload #banner .logo2 {
+			-moz-transform: translateY(0.5em);
+			-webkit-transform: translateY(0.5em);
+			-ms-transform: translateY(0.5em);
+			transform: translateY(0.5em);
+			opacity: 0;
+		}
+
+		body.is-preload #banner .logo3 {
+			-moz-transform: translateY(0.5em);
+			-webkit-transform: translateY(0.5em);
+			-ms-transform: translateY(0.5em);
+			transform: translateY(0.5em);
+			opacity: 0;
+		}
+
+		body.is-preload #banner .logo4 {
+			-moz-transform: translateY(0.5em);
+			-webkit-transform: translateY(0.5em);
+			-ms-transform: translateY(0.5em);
+			transform: translateY(0.5em);
+			opacity: 0;
+		}
+
+		body.is-preload #banner .logo5 {
+			-moz-transform: translateY(0.5em);
+			-webkit-transform: translateY(0.5em);
+			-ms-transform: translateY(0.5em);
+			transform: translateY(0.5em);
+			opacity: 0;
+		}
+
+		body.is-preload #banner .logo6 {
 			-moz-transform: translateY(0.5em);
 			-webkit-transform: translateY(0.5em);
 			-ms-transform: translateY(0.5em);
@@ -3552,6 +3707,43 @@ input, select, textarea {
 	#wrapper > header {
 		padding: 11em 0 2.25em 0 ;
 	}
+
+	#wrapper a { 
+		border-bottom: none; }
+
+	#wrapper .logo {
+		-moz-transition: opacity 2s ease, -moz-transform 1s ease;
+		-webkit-transition: opacity 2s ease, -webkit-transform 1s ease;
+		-ms-transition: opacity 2s ease, -ms-transform 1s ease;
+		transition: opacity 2s ease, transform 1s ease;
+		-moz-transform: translateY(0);
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0);
+		opacity: 1;
+		margin: 0 0 1.3em 0;
+		text-align: left;
+	}
+
+		#wrapper .logo .icon {
+			border-radius: 100%;
+			border: solid 2px rgba(255, 255, 255, 0.125);
+			cursor: pointer;
+			display: inline-block;
+			font-size: 2em;
+			height: 2.25em;
+			line-height: 2.25em;
+			text-align: center;
+			width: 2.25em;
+		}
+
+		#wrapper .logo .icon:hover {
+			background-color: rgba(255, 255, 255, 0.065);
+		}
+
+		#wrapper .logo .icon:active {
+			background-color: rgba(255, 255, 255, 0.09);
+		}
 
 		#wrapper > header .inner {
 			margin: 0 auto;
@@ -4026,6 +4218,11 @@ input, select, textarea {
 		width: 55em;
 	}
 
+	#footer .inner {
+		margin: 0 auto;
+		width: 55em;
+	}
+
 		#footer .inner > * {
 			width: 100%;
 		}
@@ -4038,6 +4235,45 @@ input, select, textarea {
 		#footer .inner .contact {
 			width: calc(50% - 1.5em);
 		}
+
+		#footer .contact .logo {
+			-moz-transition: opacity 2s ease, -moz-transform 1s ease;
+			-webkit-transition: opacity 2s ease, -webkit-transform 1s ease;
+			-ms-transition: opacity 2s ease, -ms-transform 1s ease;
+			transition: opacity 2s ease, transform 1s ease;
+			-moz-transform: translateY(0);
+			-webkit-transform: translateY(0);
+			-ms-transform: translateY(0);
+			transform: translateY(0);
+			opacity: 1;
+			margin: 0 0 0.75em 0;
+		}
+
+		#footer .contact .logo  a { 
+			border-bottom: none; 
+			display:inline-block;
+			margin-right:0.5em;
+		}
+	
+			#footer .contact .logo .icon {
+				border-radius: 100%;
+				border: solid 2px rgba(255, 255, 255, 0.125);
+				cursor: pointer;
+				display: inline-block;
+				font-size: 1em;
+				height: 2.25em;
+				line-height: 2.25em;
+				text-align: center;
+				width: 2.25em;
+			}
+	
+			#footer .contact .logo .icon:hover {
+				background-color: rgba(255, 255, 255, 0.065);
+			}
+	
+			#footer .contact .logo .icon:active {
+				background-color: rgba(255, 255, 255, 0.09);
+			}
 
 		#footer .inner .copyright {
 			border-top: solid 2px rgba(255, 255, 255, 0.125);
